@@ -1,0 +1,16 @@
+#pro_box {
+    text-align: center;
+    margin: 2vh 2vw;
+}
+html body div#pro_box div.pro_block div#pro_image_box img#pro_image {
+    max-width: 32vh;
+}
+html body div#pro_box div.pro_block div#pro_image_box img.circle.responsive-img {
+    max-height: 34vh;
+}
+.pro_block {
+    vertical-align: top;
+}
+h5 {
+    color: #006637;
+}

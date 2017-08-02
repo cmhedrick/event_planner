@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block excss %}
+<style>
+    footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    div.section.center-section {
+        margin-top: 25vh;
+    }
+    @media only screen and (max-height: 667px) {
+        div.section.center-section {
+            margin-top: 25vh;
+        }
+    }
+    @media only screen and (max-height: 375px) {
+        div.section.center-section {
+            margin-top: initial;
+        }
+        footer {
+            position: initial;
+            bottom: initial;
+            left: initial;
+            right: initial;
+        }
+    }
+</style>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="section center-section">
+            <div class="row center">
+                <div class="col s12 m12">
+                    <a href="#" class="btn-large waves-effect waves-light myPurple-btn">Start Planning!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

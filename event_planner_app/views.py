@@ -1,5 +1,9 @@
-from django.http import HttpResponse
+from django.views.generic.base import TemplateView
 
+class IndexPageView(TemplateView):
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    template_name = "index.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(IndexPageView, self).get_context_data(**kwargs)
+        return context

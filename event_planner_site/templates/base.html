@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+        <title>{% block title %}Event Planner{% endblock %}</title>
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+        <link href="/static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link rel="stylesheet" href="/static/css/global.css">
+        {% block excss %}{% endblock %}
+    </head>
+    <body>
+        <nav id="purple" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="/" class="brand-logo">Event Planner</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="/">Home</a></li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="/">Home</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+        {% block content %}{% endblock %}
+        <footer class="page-footer myPurple-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col l3 s12">
+                        <ul>
+                            <li><a class="white-text" href="http://cmhedrick.me/">The Developer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    Made with <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+                </div>
+            </div>
+        </footer>
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="/static/js/materialize.min.js"></script>
+        <script src="/static/js/init.js"></script>
+        {% block exscript %}{% endblock %}
+    </body>
+</html>

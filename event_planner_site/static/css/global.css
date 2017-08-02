@@ -1,0 +1,22 @@
+/*Global*/
+body {
+    background-color: #fff;
+}
+nav#purple {
+    background-color:#966FD6;
+}
+nav#purple, div.nav-wrapper, a#logo-container {
+    color: #fff;
+}
+.myYellow-text {
+    color: #966FD6;
+}
+.myPurple-btn {
+    background-color:#966FD6;
+}
+.btn:hover, .btn-large:hover.myPurple-btn {
+    background-color: #966FD6;
+}
+footer.myPurple-footer {
+    background-color:#966FD6;
+}

@@ -107,3 +107,4 @@ ENV/
 .~lock.template.xlsx#
 template.xlsx
 db.sqlite3
+config.py

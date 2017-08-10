@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from django.views.static import serve
 
 urlpatterns = [
-    url(r'^$', include('event_planner_app.urls')),
+    url(r'^', include('event_planner_app.urls')),
     url(r'^admin/', admin.site.urls),
 ]
 

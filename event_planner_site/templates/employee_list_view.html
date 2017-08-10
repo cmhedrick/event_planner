@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}All Clients{% endblock %}
+{% block excss %}
+    {% if clients.count == 0 %}
+        <style>
+            footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+            div.section.center-section {
+                margin-top: 10vh;
+            }
+            @media only screen and (max-height: 667px) {
+                div.section.center-section {
+                    margin-top: 5vh;
+                }
+            }
+            @media only screen and (max-height: 375px) {
+                div.section.center-section {
+                    margin-top: initial;
+                }
+                footer {
+                    position: initial;
+                    bottom: initial;
+                    left: initial;
+                    right: initial;
+                }
+            }
+        </style>
+    {% endif %}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="section center-section">
+            {% if employees.count %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Contact</th>
+                            <th>Email</th>
+                            <th>Contracts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for employee in employees %}
+                            <tr>
+                                <td><a href="/employee/{{employee.id}}">{{employee}}</a></td>
+                                <td><a href="/employee/{{employee.id}}">{{employee.first_name}} {{employee.last_name}}</a></td>
+                                <td>{{client.email}}</td>
+                                <td>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No clients</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

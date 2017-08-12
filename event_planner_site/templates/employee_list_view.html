@@ -38,20 +38,19 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Company</th>
-                            <th>Contact</th>
+                            <th>Employee</th>
+                            <th>Phone</th>
                             <th>Email</th>
-                            <th>Contracts</th>
+                            <th>Emergency Contact</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for employee in employees %}
                             <tr>
-                                <td><a href="/employee/{{employee.id}}">{{employee}}</a></td>
                                 <td><a href="/employee/{{employee.id}}">{{employee.first_name}} {{employee.last_name}}</a></td>
-                                <td>{{client.email}}</td>
-                                <td>
-                                </td>
+                                <td>{{employee.phone_number}}</td>
+                                <td>{{employee.e_mail}}</td>
+                                <td><a href="/emergency_contact/{{employee.emergency_contact.id}}">{{employee.emergency_contact.first_name}}: {{employee.emergency_contact.phone_number}}</a></td>
                             </tr>
                         {% endfor %}
                     </tbody>

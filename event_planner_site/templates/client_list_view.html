@@ -34,29 +34,29 @@
 {% block content %}
     <div class="container">
         <div class="section center-section">
-            {% if employees.count %}
+            {% if clients.count %}
                 <table>
                     <thead>
                         <tr>
-                            <th>Employee</th>
+                            <th>Company</th>
+                            <th>Client</th>
                             <th>Phone</th>
                             <th>Email</th>
-                            <th>Emergency Contact</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for employee in employees %}
+                        {% for client in clients %}
                             <tr>
-                                <td><a href="/employee/{{employee.id}}">{{employee.first_name}} {{employee.last_name}}</a></td>
-                                <td>{{employee.phone_number}}</td>
-                                <td>{{employee.e_mail}}</td>
-                                <td><a href="/emergency_contact/{{employee.emergency_contact.id}}">{{employee.emergency_contact.first_name}}: {{employee.emergency_contact.phone_number}}</a></td>
+                                <td>{{client.company}}</td>
+                                <td><a href="/client/{{client.id}}">{{client.first_name}} {{client.last_name}}</a></td>
+                                <td>{{client.phone_number}}</td>
+                                <td>{{client.e_mail}}</td>
                             </tr>
                         {% endfor %}
                     </tbody>
                 </table>
             {% else %}
-                <p>No Employees</p>
+                <p>No clients</p>
             {% endif %}
         </div>
     </div>

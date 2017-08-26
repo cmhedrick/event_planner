@@ -20,3 +20,13 @@ class EmployeeListAllView(TemplateView):
         employees = models.Employee.objects.all()
         context['employees'] = employees
         return context
+
+
+class ClientListAllView(TemplateView):
+    template_name = "client_list_view.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ClientListAllView, self).get_context_data(**kwargs)
+        employees = models.Client.objects.all()
+        context['clients'] = employees
+        return context

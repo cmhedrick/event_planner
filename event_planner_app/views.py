@@ -1,6 +1,7 @@
+from django.views import generic
 from django.views.generic.base import TemplateView
 
-from event_planner_app import models
+from event_planner_app import models, forms
 
 
 class IndexPageView(TemplateView):
@@ -30,3 +31,25 @@ class ClientListAllView(TemplateView):
         employees = models.Client.objects.all()
         context['clients'] = employees
         return context
+
+
+class AddClientView(generic.FormView):
+    template_name = 'add_client.html'
+    form_class = forms.AddClientForm
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(AddClientView, self).get_context_data(*args, **kwargs)
+        context['kwargs'] = self.kwargs
+        context['request'] = self.request
+        return context
+
+    def get_form_kwargs(self):
+        kwargs = super(AddClientView, self).get_form_kwargs()
+        return kwargs
+
+    def form_valid(self, form):
+        form.save()
+        return super(AddClientView, self).form_valid(form)
+
+    def get_success_url(self):
+        return '/'

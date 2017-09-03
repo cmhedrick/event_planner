@@ -8,5 +8,7 @@ urlpatterns = [
     # manage clients
     url(r'^all-clients/$', views.ClientListAllView.as_view()),
     url(r'^add-client/$', views.AddClientView.as_view()),
+    # manage events
     #url(r'^all-events/$', views.EventListAllView.as_view()),
+    url(r'^add-event/$', views.AddEventView.as_view()),
 ]

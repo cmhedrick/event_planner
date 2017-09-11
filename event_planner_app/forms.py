@@ -71,29 +71,104 @@ class AddEventForm(forms.Form):
             )
         )
     )
-    last_name = forms.CharField(
-        widget=forms.TextInput(attrs={
-            'placeholder': "Last Name"
-        }),
-        label="Last Name"
+    event_end_date = forms.DateField(
+        widget = SelectDateWidget(
+            years = range(
+                (
+                    datetime.datetime.today() +
+                    datetime.timedelta(days=(365 * 5))
+                ).year,
+                datetime.datetime.now().year
+            )
+        )
     )
-    company = forms.CharField(
+    venue_name = forms.CharField(
         widget=forms.TextInput(attrs={
-            'placeholder': "Company"
+            'placeholder': "Venue"
         }),
-        label="Company"
+        label="Venue"
     )
-    phone_number = forms.CharField(
+    address_1 = forms.CharField(
         widget=forms.TextInput(attrs={
-            'placeholder': "Phone Number"
+            'placeholder': "Street Name"
         }),
-        label="Phone Number"
+        label="ex: 123 N Hollywoo RD."
     )
-    e_mail = forms.EmailField(
+    address_2 = forms.CharField(
         widget=forms.TextInput(attrs={
-            'placeholder': "Email Address"
+            'placeholder': "Apt, Suite"
         }),
-        label="Email"
+        label="ex: 100"
+    )
+    city = forms.CharField(
+        widget=forms.TextInput(attrs={
+            'placeholder': "City"
+        }),
+        label="City"
+    )
+    state = forms.CharField(
+        widget=forms.TextInput(attrs={
+            'placeholder': "State"
+        }),
+        label="State"
+    )
+    zip = forms.CharField(
+        widget=forms.TextInput(attrs={
+            'placeholder': "Zip"
+        }),
+        label="Zip"
+    )
+    event_summary = forms.CharField(
+        label="Event Summary",
+        widget=forms.Textarea(attrs={
+            'placeholder': "Event Summary"
+        })
+    )
+    load_in_date = forms.DateField(
+        widget = SelectDateWidget(
+            years = range(
+                (
+                    datetime.datetime.today() +
+                    datetime.timedelta(days=(365 * 5))
+                ).year,
+                datetime.datetime.now().year
+            )
+        )
+    )
+    load_out_date = forms.DateField(
+        widget = SelectDateWidget(
+            years = range(
+                (
+                    datetime.datetime.today() +
+                    datetime.timedelta(days=(365 * 5))
+                ).year,
+                datetime.datetime.now().year
+            )
+        )
+    )
+    client = forms.CharField(
+        widget=forms.TextInput(attrs={
+            'placeholder': "Client"
+        }),
+        label="Client"
+    )
+    truck_parking = forms.CharField(
+        label="Truck Parking Instructions",
+        widget=forms.Textarea(attrs={
+            'placeholder': "Truck Parking Instructions"
+        })
+    )
+    airport = forms.CharField(
+        widget=forms.TextInput(attrs={
+            'placeholder': "Airport"
+        }),
+        label="Airport"
+    )
+    pm = forms.CharField(
+        widget=forms.TextInput(attrs={
+            'placeholder': "Project Manager"
+        }),
+        label="Project Manager"
     )
 
     def __init__(self, *args, **kwargs):
@@ -101,7 +176,8 @@ class AddEventForm(forms.Form):
 
     def save(self):
         info = self.cleaned_data
-        new_client = models.Client.objects.create(
+        import pdb; pdb.set_trace()
+        new_event = models.Event.objects.create(
             first_name=info['first_name'],
             last_name=info['last_name'],
             company=info['company'],
